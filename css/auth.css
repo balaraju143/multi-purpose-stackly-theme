@@ -144,14 +144,8 @@ body{
 
     margin-bottom: 35px;
 }
-@media(max-width:576px){
 
-    .auth-logo img{
-        height: 65px;   /* Bigger logo on mobile */
-        width: auto;
-    }
 
-}
 
 
 /*==================================
@@ -343,43 +337,91 @@ body{
           MOBILE
 ==================================*/
 
-@media(max-width:576px){
 
-    .auth-container{
-        padding: 35px 25px;
-
-        border-radius: 24px;
-    }
-
-    .auth-logo img{
-        width: 75px;
-    }
-
-    .auth-container h1{
-        font-size: 1.6rem;
-    }
-
-    .auth-subtitle{
-        font-size: .95rem;
-    }
-
-    .form-group input{
-        padding: 14px 16px;
-    }
-
-    .auth-btn{
-        padding: 15px;
-    }
-
-}
+/*==================================
+          PRELOADER
+==================================*/
 
 .preloader{
     position: fixed;
     inset: 0;
+
+    background: #ffffff;
+
     z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition: opacity 0.6s ease,
+                visibility 0.6s ease;
 }
 
 .preloader.hide{
     opacity: 0;
     visibility: hidden;
+
+    pointer-events: none;
+}
+
+.loader{
+    text-align: center;
+}
+
+.loader-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 2rem;
+    font-weight: 800;
+
+    color: #4f46e5;
+
+    margin-bottom: 25px;
+}
+
+.loader-bars{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.loader-bars span{
+    width: 10px;
+    height: 40px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        to bottom,
+        #4f46e5,
+        #7c3aed
+    );
+
+    animation: loader 1s infinite;
+}
+
+.loader-bars span:nth-child(2){
+    animation-delay: .2s;
+}
+
+.loader-bars span:nth-child(3){
+    animation-delay: .4s;
+}
+
+@keyframes loader{
+
+    0%,100%{
+        transform: scaleY(.4);
+    }
+
+    50%{
+        transform: scaleY(1);
+    }
 }
