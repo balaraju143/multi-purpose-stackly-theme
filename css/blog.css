@@ -481,6 +481,34 @@
 }
 
 
+@media (max-width: 768px){
+
+    .topics-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        justify-items: center;
+    }
+
+    .topic-chip{
+        width: 150px;
+        min-height: 55px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 14px 10px;
+    }
+
+}
+/*==================================
+    TRENDING TOPICS
+==================================*/
+
+
 /*==================================
         TOPIC CHIPS
 ==================================*/
@@ -661,54 +689,136 @@
       NEWSLETTER FORM
 ==================================*/
 
-.newsletter-form{
+.subscribe-form{
+    max-width: 650px;
+
+    margin: 0 auto;
+
     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 
-    flex-direction: column;
-
-    gap: 20px;
+    justify-content: center;
 }
 
-.input-group{
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
+#subscribeEmail{
+    flex: 1;
+    min-width: 280px;
 
     padding: 18px 25px;
 
-    border-radius: 18px;
+    border: 2px solid #e2e8f0;
 
-    background: #ffffff;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,.05);
-}
-
-.input-group i{
-    color: var(--primary);
-
-    font-size: 1.2rem;
-}
-
-.input-group input{
-    flex: 1;
-
-    border: none;
+    border-radius: 50px;
 
     outline: none;
 
-    background: transparent;
-
     font-size: 1rem;
 
-    color: var(--dark);
+    transition: .3s ease;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
 }
 
-.input-group input::placeholder{
+#subscribeEmail:focus{
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(79,70,229,.12);
+}
+
+#subscribeEmail::placeholder{
     color: #94a3b8;
 }
 
+
+.subscribe-btn{
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 18px 32px;
+
+    border-radius: 50px;
+
+    background: #000000;   /* Black button */
+
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+    white-space: nowrap;
+}
+
+.subscribe-btn:hover{
+    background: #1f1f1f;   /* Slightly lighter black */
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,.25);
+}
+
+.subscribe-btn i{
+    font-size: 0.95rem;
+}
+
+#subscribeMessage{
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 10px;
+
+    font-size: .9rem;
+
+    font-weight: 500;
+}
+
+#subscribeMessage{
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+    font-size: .9rem;
+    font-weight: 500;
+
+    min-height: 24px;
+}
+
+#subscribeMessage.error{
+    color: #ef4444;
+}
+
+#subscribeMessage.success{
+    color: #16a34a;
+}
+
+
+@media(max-width:576px){
+
+    .subscribe-form{
+        flex-direction: column;
+    }
+
+    #subscribeEmail,
+    .subscribe-btn{
+        width: 100%;
+    }
+
+    .subscribe-btn{
+        justify-content: center;
+    }
+
+}
 
 /*==================================
       SHIMMER BUTTON
@@ -924,4 +1034,36 @@
         flex-direction: column;
     }
 
+}
+
+
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 20px;
+
+    font-size: 1rem;
+}
+
+.breadcrumb a{
+    color: var(--primary);   /* Blue */
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.breadcrumb a:hover{
+    color: var(--secondary);
+
+    text-decoration: underline;
+}
+
+.breadcrumb span{
+    color: #64748b;
 }

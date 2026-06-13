@@ -208,7 +208,17 @@
     gap: 15px;
 }
 
+@media (max-width:768px){
 
+    .services-intro{
+        padding-bottom: 30px !important;
+    }
+
+    .more-services{
+        padding-top: 0 !important;
+    }
+
+}
 /*==================================
         TILT EFFECTS
 ==================================*/
@@ -950,4 +960,36 @@
         flex-direction: column;
     }
 
+}
+
+
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 20px;
+
+    font-size: 1rem;
+}
+
+.breadcrumb a{
+    color: var(--primary);   /* Blue */
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.breadcrumb a:hover{
+    color: var(--secondary);
+
+    text-decoration: underline;
+}
+
+.breadcrumb span{
+    color: #64748b;
 }

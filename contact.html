@@ -377,73 +377,44 @@
 
             <div class="contact-form-card">
 
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm" novalidate>
 
                     <div class="form-group">
+    <input type="text" id="fullName">
+    <label>Full Name</label>
+    <span class="input-line"></span>
+</div>
 
-                        <input type="text"
-                               required>
+<small id="nameError" class="field-error"></small>
 
-                        <label>
+                   
+<div class="form-group">
 
-                            Full Name
+    <input type="text" id="email">
 
-                        </label>
+    <label>Email Address</label>
 
-                        <span class="input-line"></span>
+    <span class="input-line"></span>
 
-                    </div>
+</div>
 
-
-
-                    <div class="form-group">
-
-                        <input type="email"
-                               required>
-
-                        <label>
-
-                            Email Address
-
-                        </label>
-
-                        <span class="input-line"></span>
-
-                    </div>
+<small id="emailError" class="field-error"></small>
 
 
+      <div class="form-group">
+    <input type="text" id="subject" autocomplete="off">
+    <label>Subject</label>
+    <span class="input-line"></span>
+</div>             
+<small id="emailError" class="field-error"></small>
+                    
+<div class="form-group">
+    <textarea rows="5" id="message"></textarea>
+    <label>Your Message</label>
+    <span class="input-line"></span>
+</div>
 
-                    <div class="form-group">
-
-                        <input type="text"
-                               required>
-
-                        <label>
-
-                            Subject
-
-                        </label>
-
-                        <span class="input-line"></span>
-
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <textarea rows="5"
-                                  required></textarea>
-
-                        <label>
-
-                            Your Message
-
-                        </label>
-
-                        <span class="input-line"></span>
-
-                    </div>
+<small id="messageError" class="field-error"></small>
 
 
 
@@ -453,7 +424,7 @@
                         Send Message
 
                     </button>
-
+                   <small id="successMessage"></small>
                 </form>
 
             </div>
@@ -465,8 +436,38 @@
 </section>
 
 
+<section class="contact-map">
 
+    <div class="section-heading">
 
+        <span class="section-subtitle">
+            Our Location
+        </span>
+
+        <h2>
+            Find Us Nearby
+        </h2>
+
+        <p>
+            Visit our office or locate us easily using the map below.
+        </p>
+
+    </div>
+
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps?q=Hyderabad,India&output=embed"
+            width="100%"
+            height="500"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
 
 <!--=========================
        OFFICE LOCATIONS

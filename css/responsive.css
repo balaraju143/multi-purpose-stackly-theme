@@ -536,44 +536,54 @@
 }
 
 /* Floating Cards Mobile Fix */
-@media (max-width: 768px) {
+@media (max-width:768px){
+
+    .overview-image{
+        position: relative;
+        overflow: hidden;
+    }
 
     .floating-card{
         padding: 10px 12px;
-        min-width: 110px;
-        max-width: 130px;
-
-        border-radius: 14px;
+        min-width: 100px;
+        max-width: 120px;
 
         gap: 8px;
 
-        transform: scale(0.85);
-
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        transform: scale(0.75);
     }
 
-    .floating-card i,
-    .floating-card .card-icon{
-        width: 36px;
-        height: 36px;
+    .card-1{
+        top: 10px;
+        left: 10px;
+    }
 
-        font-size: 0.9rem;
+    .card-2{
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .card-3{
+        top: 55%;
+        left: 10px;
+    }
+
+    .floating-card i{
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
     }
 
     .floating-card h4{
-        font-size: 0.85rem;
-        margin-bottom: 2px;
+        font-size: 0.8rem;
     }
 
     .floating-card p,
     .floating-card span{
-        font-size: 0.72rem;
-        line-height: 1.3;
+        font-size: 0.7rem;
     }
 
 }
-
-
 /*==================================
     TIMELINE MOBILE FIX
 ==================================*/
@@ -636,6 +646,87 @@
     .timeline-content p{
         font-size: 0.95rem;
         line-height: 1.7;
+    }
+
+}
+
+
+
+@media (max-width: 768px){
+
+    .team-grid{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+
+    .team-card{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .team-card img{
+        width: 100% !important;
+        height: 280px !important;
+        object-fit: cover !important;
+        display: block;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .service-card{
+        height: auto;
+        min-height: auto;
+        padding-bottom: 30px;
+    }
+
+    .service-card p{
+        margin-bottom: 25px;
+    }
+
+    .services-grid{
+        gap: 25px;
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .brands-slider{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+
+        justify-items: center;
+        align-items: center;
+
+        width: 100%;
+    }
+
+    .brand-item{
+        width: 120px;
+        height: 90px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 20px;
+    }
+
+    .brand-item img{
+        max-width: 55px;
+        max-height: 55px;
+
+        width: auto;
+        height: auto;
+
+        object-fit: contain;
+        display: block;
     }
 
 }

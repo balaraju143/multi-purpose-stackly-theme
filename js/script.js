@@ -24,14 +24,17 @@ window.addEventListener("load", () => {
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
+if (hamburger && navLinks) {
 
-    navLinks.classList.toggle("active");
+    hamburger.addEventListener("click", () => {
 
-    hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
 
-});
+        hamburger.classList.toggle("active");
 
+    });
+
+}
 
 
 /*==============================
@@ -161,14 +164,17 @@ const faqItems =
 
 faqItems.forEach(item => {
 
-    const question =
-        item.querySelector(".faq-question");
+    const question = item.querySelector(".faq-question");
 
-    question.addEventListener("click", () => {
+    if(question){
 
-        item.classList.toggle("active");
+        question.addEventListener("click", () => {
 
-    });
+            item.classList.toggle("active");
+
+        });
+
+    }
 
 });
 
@@ -416,4 +422,351 @@ console.log(
     "%cStackly Theme Loaded Successfully 🚀",
     "color:#4F46E5;font-size:16px;font-weight:bold;"
 );
+
+const subscribeForm = document.getElementById("subscribeForm");
+
+if (subscribeForm) {
+
+    subscribeForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const emailInput = document.getElementById("subscribeEmail");
+        const message = document.getElementById("subscribeMessage");
+
+        const email = emailInput.value.trim();
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        /* Clear previous timeout */
+        clearTimeout(message.timeoutId);
+
+        if (email === "") {
+
+            message.textContent =
+                "Email address is required.";
+
+            message.className =
+                "error";
+
+            /* Hide after 3 seconds */
+            message.timeoutId = setTimeout(() => {
+
+                message.textContent = "";
+                message.className = "";
+
+            }, 3000);
+
+            return;
+        }
+
+        if (!emailPattern.test(email)) {
+
+            message.textContent =
+                "Please enter a valid email address.";
+
+            message.className =
+                "error";
+
+            /* Hide after 3 seconds */
+            message.timeoutId = setTimeout(() => {
+
+                message.textContent = "";
+                message.className = "";
+
+            }, 3000);
+
+            return;
+        }
+
+        message.textContent =
+            "Thank you! You have successfully subscribed.";
+
+        message.className =
+            "success";
+
+        subscribeForm.reset();
+
+        /* Hide after 3 seconds */
+        message.timeoutId = setTimeout(() => {
+
+            message.textContent = "";
+            message.className = "";
+
+        }, 3000);
+
+    });
+
+}
+
+
+const loginForm = document.getElementById("loginForm");
+
+if(loginForm){
+
+    loginForm.addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const email =
+            document.getElementById("loginEmail");
+
+        const password =
+            document.getElementById("loginPassword");
+
+        const emailError =
+            document.getElementById("emailError");
+
+        const passwordError =
+            document.getElementById("passwordError");
+
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        let isValid = true;
+
+        if(email.value.trim() === ""){
+
+            emailError.textContent =
+                "Email address is required.";
+
+            isValid = false;
+        }
+
+        else if(!emailPattern.test(email.value.trim())){
+
+            emailError.textContent =
+                "Please enter a valid email address.";
+
+            isValid = false;
+        }
+
+        if(password.value.length < 8){
+
+            passwordError.textContent =
+                "Password must be at least 8 characters.";
+
+            isValid = false;
+        }
+
+        if(isValid){
+
+            window.location.href = "404.html";
+        }
+
+    });
+
+}
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+const loginPassword =
+    document.getElementById("loginPassword");
+
+if(togglePassword){
+
+    togglePassword.addEventListener("click", () => {
+
+        if(loginPassword.type === "password"){
+
+            loginPassword.type = "text";
+
+            togglePassword.classList.replace(
+                "fa-eye",
+                "fa-eye-slash"
+            );
+
+        }
+
+        else{
+
+            loginPassword.type = "password";
+
+            togglePassword.classList.replace(
+                "fa-eye-slash",
+                "fa-eye"
+            );
+
+        }
+
+    });
+
+}
+
+
+/*==============================
+    CONTACT FORM
+==============================*/
+
+const contactForm = document.getElementById("contactForm");
+
+if(contactForm){
+
+    const fullName = document.getElementById("fullName");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const messageError = document.getElementById("messageError");
+
+    const successMessage =
+        document.getElementById("successMessage");
+
+
+    function clearError(errorField){
+
+        clearTimeout(errorField.timeoutId);
+
+        errorField.timeoutId = setTimeout(() => {
+
+            errorField.textContent = "";
+
+        }, 3000);
+
+    }
+
+
+    contactForm.addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        messageError.textContent = "";
+        successMessage.textContent = "";
+
+        let isValid = true;
+
+        const namePattern = /^[A-Za-z\s]+$/;
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        /* Full Name */
+
+        if(fullName.value.trim() === ""){
+
+            nameError.textContent =
+                "Full Name is required.";
+
+            clearError(nameError);
+
+            isValid = false;
+        }
+
+        else if(!namePattern.test(fullName.value.trim())){
+
+            nameError.textContent =
+                "Only letters and spaces are allowed.";
+
+            clearError(nameError);
+
+            isValid = false;
+        }
+
+
+        /* Email */
+
+        if(email.value.trim() === ""){
+
+            emailError.textContent =
+                "Email address is required.";
+
+            clearError(emailError);
+
+            isValid = false;
+        }
+
+        else if(!emailPattern.test(email.value.trim())){
+
+            emailError.textContent =
+                "Please enter a valid email address.";
+
+            clearError(emailError);
+
+            isValid = false;
+        }
+
+
+        /* Message */
+
+        if(message.value.trim() === ""){
+
+            messageError.textContent =
+                "Please enter your message.";
+
+            clearError(messageError);
+
+            isValid = false;
+        }
+
+
+        /* Success */
+
+        if(isValid){
+
+            successMessage.textContent =
+                "Message sent successfully!";
+
+            contactForm.reset();
+
+            setTimeout(() => {
+
+                successMessage.textContent = "";
+
+            }, 3000);
+
+        }
+
+    });
+
+
+    /* Remove error while typing */
+
+    fullName.addEventListener("input", () => {
+
+        nameError.textContent = "";
+
+    });
+
+
+    email.addEventListener("input", () => {
+
+        emailError.textContent = "";
+
+    });
+
+
+    message.addEventListener("input", () => {
+
+        messageError.textContent = "";
+
+    });
+
+}
+
+
+window.addEventListener("load", () => {
+
+    document.querySelectorAll(
+        ".about-banner-content h1, \
+         .about-banner-content p, \
+         .contact-banner-content h1, \
+         .contact-banner-content p, \
+         .services-banner-content h1, \
+         .services-banner-content p"
+    ).forEach(el => {
+
+        el.style.animationPlayState = "running";
+
+    });
+
+});
 

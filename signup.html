@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stackly Register</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/auth.css">  
+
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="signup-container">
+
+            <!-- Left Info Card -->
+
+            <div class="fashion-info-card">
+
+              
+                <h1>🚀 Build Smarter With Stackly</h1>
+
+                <p>
+                    Join Stackly to manage your projects,
+                    collaborate with teams, and streamline
+                    your workflow from one place.
+                </p>
+
+                <div class="info-item">
+
+                    <h3>⚡ Smart Workflows</h3>
+
+                    <p>
+                        Organize and manage tasks efficiently.
+                    </p>
+
+                </div>
+
+                <div class="info-item">
+
+                    <h3>📊 Analytics Dashboard</h3>
+
+                    <p>
+                        Track performance with powerful insights.
+                    </p>
+
+                </div>
+
+                <div class="info-item">
+
+                    <h3>👥 Team Collaboration</h3>
+
+                    <p>
+                        Work seamlessly with your team.
+                    </p>
+
+                </div>
+
+                <div class="info-item">
+
+                    <h3>🔒 Secure Access</h3>
+
+                    <p>
+                        Keep your data safe and protected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Register Card -->
+
+            <div class="auth-card">
+
+                <div class="login-header">
+
+                    <img src="images/blue-logo.webp"
+                         alt="Stackly Logo">
+
+                    <h2>Create Account</h2>
+
+                    <p>
+                        Create your Stackly account
+                        and get started today.
+                    </p>
+
+                </div>
+
+
+                <!-- Full Name -->
+
+                <input type="text"
+                       id="name"
+                       placeholder="Enter Full Name"
+                       oninput="this.value=this.value.replace(/[^a-zA-Z ]/g,'')">
+
+                <p id="nameError"
+                   class="error-msg"></p>
+
+
+                <!-- Email -->
+
+                <input type="email"
+                       id="signupEmail"
+                       placeholder="Email Address">
+
+                <p id="emailError"
+                   class="error-msg"></p>
+
+
+                <!-- Password -->
+
+                <div class="password-box">
+
+                    <input type="password"
+                           id="signupPassword"
+                           placeholder="Enter Password">
+
+                    <i class="fa-solid fa-eye toggle-icon"
+                       onclick="togglePassword('signupPassword', this)">
+                    </i>
+
+                </div>
+
+                <p id="passwordError"
+                   class="error-msg"></p>
+
+
+                <!-- Confirm Password -->
+
+                <div class="password-box">
+
+                    <input type="password"
+                           id="confirmPassword"
+                           placeholder="Confirm Password">
+
+                    <i class="fa-solid fa-eye toggle-icon"
+                       onclick="togglePassword('confirmPassword', this)">
+                    </i>
+
+                </div>
+
+                <p id="confirmPasswordError"
+                   class="error-msg"></p>
+
+
+                <!-- Role Selection -->
+
+                <div class="custom-select">
+
+                    <div class="select-box"
+                         onclick="toggleSignupRoleDropdown()">
+
+                        <span id="selectedSignupRole">
+
+                            Select Role
+
+                        </span>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                    <div class="select-options"
+                         id="signupRoleOptions">
+
+                        <div onclick="selectSignupRole('user')">
+
+                            User
+
+                        </div>
+
+                        <div onclick="selectSignupRole('admin')">
+
+                            Admin
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <input type="hidden"
+                       id="signupRole">
+
+                <p id="roleError"
+                   class="error-msg"></p>
+
+
+                <!-- Register Button -->
+
+                <button class="register-btn"
+                        onclick="registerUser()">
+
+                    Create Account
+
+                </button>
+
+
+                <!-- Login Link -->
+
+                <p class="register-link">
+
+                    Already have an account?
+
+                    <a href="index.html">
+
+                        Login
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

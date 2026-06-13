@@ -641,27 +641,26 @@
             </div>
 
 
-            <form class="newsletter-form">
+         <form id="subscribeForm" class="subscribe-form">
 
-                <div class="input-group">
+    <input type="text"
+       id="subscribeEmail"
+       placeholder="Enter your email address"
+       autocomplete="off">
 
-                    <i class="fa-regular fa-envelope"></i>
+    <button type="submit"
+            class="subscribe-btn">
 
-                    <input type="email"
-                           placeholder="Enter your email address"
-                           required>
+        <i class="fa-solid fa-paper-plane"></i>
 
-                </div>
+        Subscribe
 
+    </button>
 
-                <button type="submit"
-                        class="subscribe-btn">
+    <small id="subscribeMessage"></small>
 
-                    Subscribe Now
+</form>
 
-                </button>
-
-            </form>
 
         </div>
 

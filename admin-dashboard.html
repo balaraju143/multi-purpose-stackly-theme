@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="css/auth.css">
+
+<style>
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#4f46e5;
+    color:white;
+    padding:30px;
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+}
+.sidebar h2{
+    color: #fff !important;
+}
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar ul li{
+    padding:15px 0;
+    cursor:pointer;
+}
+
+.sidebar ul li:hover{
+    color:#c5e1a5;
+}
+
+.content{
+    flex:1;
+    background:#eef7ee;
+    padding:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+}
+
+.card h3{
+    color:#4f46e5;
+    font-size:35px;
+}
+
+.chart-box{
+    margin-top:25px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+}
+.chart-box h2{
+    margin-bottom:32px;
+}
+
+
+.chart{
+    display:flex;
+    align-items:flex-end;
+    gap:20px;
+    height:300px;
+    margin-top:0;
+}
+
+.bar{
+    width:100%;
+    background:#4f46e5;
+}
+
+.bar-item{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.bar1{height:150px;}
+.bar2{height:220px;}
+.bar3{height:180px;}
+.bar4{height:280px;}
+.bar5{height:250px;}
+
+.mobile-header{
+    display:none;
+}
+
+.close-btn{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    .mobile-header{
+        display:flex;
+        justify-content:flex-start;
+        margin-bottom:15px;
+    }
+
+    .menu-btn{
+        background:#fff;
+        color:#4f46e5;
+        border:none;
+        width:64px;
+        height:62px;
+        border-radius:10px;
+        font-size:28px;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-260px;
+        width:260px;
+        height:100%;
+        z-index:1000;
+        transition:.3s;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .close-btn{
+        display:block;
+        background:none;
+        border:none;
+        color:white;
+        font-size:28px;
+        margin-bottom:20px;
+        text-align: left;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="sidebar" id="sidebar">
+
+<button class="close-btn" onclick="toggleMenu()">✖</button>
+
+<h2>Admin Panel</h2>
+
+<ul>
+<li onclick="window.location.href='admin-dashboard.html'">
+Dashboard
+</li>
+<li onclick="window.location.href='admin-management.html'">
+Admin Management
+</li>
+
+<li onclick="logoutUser()">
+Logout
+</li>
+</ul>
+
+</div>
+
+<div class="content">
+
+<div class="mobile-header">
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+<div class="welcome">
+<h2 id="welcomeUser"></h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>850</h3>
+<p>Registered Users</p>
+</div>
+
+<div class="card">
+<h3>1450</h3>
+<p>Total Projects</p>
+</div>
+
+<div class="card">
+<h3>₹8.5L</h3>
+<p>Total Revenue</p>
+</div>
+
+<div class="card">
+<h3>320</h3>
+<p>Active Teams</p>
+</div>
+
+</div>
+
+<h2>Resource Status</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>2500</h3>
+<p>Tasks Available</p>
+</div>
+
+<div class="card">
+<h3>1800</h3>
+<p>Resources Available</p>
+</div>
+
+<div class="card">
+<h3>65</h3>
+<p>Pending Approvals</p>
+</div>
+
+<div class="card">
+<h3>22</h3>
+<p>Critical Issues</p>
+</div>
+
+</div>
+
+<h2>User Insights</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>620</h3>
+<p>Active Users</p>
+</div>
+
+<div class="card">
+<h3>120</h3>
+<p>New Users</p>
+</div>
+
+<div class="card">
+<h3>78%</h3>
+<p>Returning Users</p>
+</div>
+
+<div class="card">
+<h3>4.9⭐</h3>
+<p>User Rating</p>
+</div>
+
+</div>
+
+<h2>Department Performance</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>₹3.2L</h3>
+<p>Operations</p>
+</div>
+
+<div class="card">
+<h3>₹2.5L</h3>
+<p>Sales</p>
+</div>
+
+<div class="card">
+<h3>₹1.8L</h3>
+<p>Marketing</p>
+</div>
+
+<div class="card">
+<h3>₹1L</h3>
+<p>Support</p>
+</div>
+
+</div>
+
+<h2>Company Goals</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>82%</h3>
+<p>Monthly Target</p>
+</div>
+
+<div class="card">
+<h3>20%</h3>
+<p>Growth Rate</p>
+</div>
+
+<div class="card">
+<h3>95%</h3>
+<p>Employee Satisfaction</p>
+</div>
+
+<div class="card">
+<h3>88%</h3>
+<p>Business Expansion</p>
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<h2>Monthly Performance</h2>
+
+<div class="chart">
+
+<div class="bar-item">
+<small>62%</small>
+<div class="bar bar1"></div>
+<span>Jan</span>
+</div>
+
+<div class="bar-item">
+<small>75%</small>
+<div class="bar bar2"></div>
+<span>Feb</span>
+</div>
+
+<div class="bar-item">
+<small>70%</small>
+<div class="bar bar3"></div>
+<span>Mar</span>
+</div>
+
+<div class="bar-item">
+<small>90%</small>
+<div class="bar bar4"></div>
+<span>Apr</span>
+</div>
+
+<div class="bar-item">
+<small>85%</small>
+<div class="bar bar5"></div>
+<span>May</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/auth.js"></script>
+
+<script>
+document.getElementById("welcomeUser").innerHTML =
+"Welcome, " + localStorage.getItem("loggedInEmail");
+</script>
+
+
+
+</body>
+</html>
