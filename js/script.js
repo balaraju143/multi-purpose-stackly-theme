@@ -80,6 +80,7 @@ const observer = new IntersectionObserver(
 
             if (entry.isIntersecting) {
                 entry.target.classList.add("show");
+            
             }
 
         });
@@ -93,7 +94,6 @@ const observer = new IntersectionObserver(
 hiddenElements.forEach(element => {
     observer.observe(element);
 });
-
 
 /*==============================
     COUNTER ANIMATION
@@ -751,22 +751,4 @@ if(contactForm){
     });
 
 }
-
-
-window.addEventListener("load", () => {
-
-    document.querySelectorAll(
-        ".about-banner-content h1, \
-         .about-banner-content p, \
-         .contact-banner-content h1, \
-         .contact-banner-content p, \
-         .services-banner-content h1, \
-         .services-banner-content p"
-    ).forEach(el => {
-
-        el.style.animationPlayState = "running";
-
-    });
-
-});
 

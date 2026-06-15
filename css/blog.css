@@ -795,7 +795,7 @@
 }
 
 #subscribeMessage.error{
-    color: #ef4444;
+    color:blue;
 }
 
 #subscribeMessage.success{

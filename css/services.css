@@ -993,3 +993,18 @@
 .breadcrumb span{
     color: #64748b;
 }
+
+
+.service-card{
+    display: flex;
+
+    flex-direction: column;
+}
+
+.service-card p{
+    flex: 1;
+}
+
+.service-card a{
+    margin-top: auto;
+}
