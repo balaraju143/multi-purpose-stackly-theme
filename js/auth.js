@@ -169,6 +169,24 @@ function registerUser() {
         return;
     }
 
+if(role === ""){
+
+    const roleError =
+    document.getElementById("roleError");
+
+    roleError.innerHTML =
+    "Please select a role";
+
+    setTimeout(() => {
+
+        roleError.innerHTML = "";
+
+    }, 3000);
+
+    return;
+}
+
+
     if (!/^[A-Za-z ]+$/.test(name)) {
 
         button.innerHTML = "Only Letters Allowed";
@@ -233,7 +251,7 @@ function registerUser() {
         button.style.background = "#28a745";
 
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "login.html";
         }, 1000);
 
     }, 1000);
